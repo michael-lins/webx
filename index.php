@@ -91,16 +91,22 @@ $_SESSION["list"] = $nameList;
 
 ?>
 
-<html>
+<!doctype html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <title>Webxample-php framework</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <style type="text/css">
+            body { margin: 25px; }
             small { color: green; }
-            tr { border-bottom: 1px solid #ddd; }
-            table { border: 1px dotted #ddd; width: 100%; }
         </style>
     </head>
+    <hr>
     <h1>Webxample-php framework <br><small>Tiny Php web framework with static routes example</small></h1>
+    <hr>
     <body>
         
         
@@ -111,37 +117,38 @@ $_SESSION["list"] = $nameList;
 
             <div>
                 <form action="/" method="post">
-                    <input type="submit" value="New"/>
+                    <button type="submit" class="btn btn-success btn-lg float-right">Create new name</button>
                     <input type="hidden" name="<?= $actionVar ?>" value="new"/>
                 </form>
             </div>
 
-            <div>
-                <table>
-                    <tr>
-                        <td>#</td>
-                        <td>Name</td>
-                        <td>Actions</td>
-                    </tr>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col" colspan="2">Actions</th>
+                    </thead>
+                    <tbody>
                     <?php foreach ( $nameList as $id => $name ) { ?>
-                    <tr>
-                        <td><?= $id ?></td>
-                        <td><?= $name ?></td>
-                        <td>
-                            <form action="/" method="post">
-                                <input type="submit" value="Edit"/>
-                                <input type="hidden" name="<?= $actionVar ?>" value="edit"/>
-                                <input type="hidden" name="<?= $nameIdVar ?>" value="<?= $id ?>"/>
-                            </form>
-                            |
-                            <form action="/" method="post">
-                                <input type="submit" value="Delete"/>
-                                <input type="hidden" name="<?= $actionVar ?>" value="delete"/>
-                                <input type="hidden" name="<?= $nameIdVar ?>" value="<?= $id ?>"/>
-                            </form>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"><?= $id ?></td>
+                            <td><?= $name ?></td>
+                            <td>
+                                <form action="/" method="post">
+                                    <button type="submit" class="btn btn-link btn-sm float-left">Edit</button>
+                                    <input type="hidden" name="<?= $actionVar ?>" value="edit"/>
+                                    <input type="hidden" name="<?= $nameIdVar ?>" value="<?= $id ?>"/>
+                                </form>
+                                <form action="/" method="post">
+                                    <button type="submit" class="btn btn-link btn-sm" style="color: red;">Delete</button>
+                                    <input type="hidden" name="<?= $actionVar ?>" value="delete"/>
+                                    <input type="hidden" name="<?= $nameIdVar ?>" value="<?= $id ?>"/>
+                                </form>
+                            </td>
+                        </tr>
                     <?php } //end foreach ?>
+                    </tbody>
                 </table>
             </div>
         
@@ -152,13 +159,21 @@ $_SESSION["list"] = $nameList;
             } elseif ( $currentAction == "new" ) { 
         ?>
         <form action="/" method="post">
-            <input type="text" name="name"/>
-            <input type="submit" value="Insert"/>
+            <fieldset>
+                <legend>New name form</legend>
+            <div class="form-group">
+                <label for="txtName">Name</label>
+                <input type="text" class="form-control" id="txtName" aria-describedby="nameHelp" placeholder="Enter name" name="name">
+                <small id="namelHelp" class="form-text text-muted">Please, enter the name to be inserted in the list.</small>
+            </div>
+            
             <input type="hidden" name="<?= $actionVar ?>" value="insert"/>
+            <button type="submit" class="btn btn-primary">Insert</button>
+            </fieldset>
         </form>
-        
+    
         <form action="/" method="post">
-            <input type="submit" value="Cancel"/>
+            <button type="submit" class="btn btn-secondary">Cancel</button>
             <input type="hidden" name="<?= $actionVar ?>" value=""/>
         </form>
         <?php } ?>
@@ -171,14 +186,22 @@ $_SESSION["list"] = $nameList;
             if ( $currentAction == "edit" ) { 
         ?>
         <form action="/" method="post">
-            <input type="text"   name="name" value="<?= $nameList[ $idPosted ] ?>"/>
+            <fieldset>
+                <legend>Edit name form</legend>
+            <div class="form-group">
+                <label for="txtName">Name</label>
+                <input type="text" class="form-control" id="txtName" aria-describedby="nameHelp" placeholder="Enter name" name="name" value="<?= $nameList[ $idPosted ] ?>">
+                <small id="namelHelp" class="form-text text-muted">Please, edit the name and save by pressing the button bellow.</small>
+            </div>
+            
             <input type="hidden" name="<?= $nameIdVar ?>" value="<?= $idPosted ?>"/>
             <input type="hidden" name="<?= $actionVar ?>" value="save"/>
-            <input type="submit" value="Save"/>
+            <button type="submit" class="btn btn-primary">Save</button>
+            </fieldset>
         </form>
-        
+    
         <form action="/" method="post">
-            <input type="submit" value="Cancel"/>
+            <button type="submit" class="btn btn-secondary">Cancel</button>
             <input type="hidden" name="<?= $actionVar ?>" value=""/>
         </form>
         <?php } ?>
