@@ -1,5 +1,11 @@
 {
     "name": "longanime/webx",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/michael-lins/webx"
+        }
+    ],
     "description": "Light php framework to illustrate the implementation of a web framework with static routes for study purposes",
     "type": "library",
     "require": {
