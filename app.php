@@ -1,12 +1,13 @@
 <?php
-require_once "webxample/App.class.php";
-require_once "webxample/Session.class.php"; // just for the listing view repository
+require_once 'vendor/autoload.php';
+
+use Webx\App;
 
 // Create the new application
 $app = new App( "NameCrudApp" );
 
 // Configure the actions for this app
-require_once "actions.php";
+include_once "actions.php";
 
 /**
  * Start up the application

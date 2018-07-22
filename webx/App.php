@@ -1,7 +1,9 @@
 <?php
-require_once "Router.class.php";
-require_once "View.class.php";
-require_once "Session.class.php";
+namespace Webx;
+
+use Router;
+use View;
+use Session;
 /**
  * webxample framework
  * 

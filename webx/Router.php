@@ -10,7 +10,9 @@
  * @author Michael Lins <michael at longanime.com.br>
  * @created 2018-07-19
  */
- require_once "BasicAction.class.php";
+namespace Webx;
+
+use BasicAction;
  
 class Router {
     

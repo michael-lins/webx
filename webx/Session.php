@@ -1,4 +1,6 @@
 <?php
+namespace Webx;
+
 class Session {
     
     public static function start() {

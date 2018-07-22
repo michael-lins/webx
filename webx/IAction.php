@@ -10,6 +10,8 @@
  * @author Michael Lins <michael at longanime.com.br>
  * @created 2018-07-19
  */
+namespace Webx;
+ 
 interface IAction {
 
     public function execute();

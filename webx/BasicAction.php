@@ -1,5 +1,7 @@
 <?php
-require_once "IAction.class.php";
+namespace Webx;
+
+use IAction;
 
 class BasicAction implements IAction {
 

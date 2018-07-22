@@ -1,4 +1,5 @@
 <?php
+namespace Webx;
 
 class View {
     
