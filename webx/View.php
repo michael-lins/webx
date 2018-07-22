@@ -8,7 +8,10 @@ class View {
     private $userHeaderView;
     private $userFooterView;
     
-    public function __construct() {
+    public function __construct( $app ) {
+        
+        $this->app = $app;
+        
         $this->userHeaderView = $_SERVER{'DOCUMENT_ROOT'} ."/app/views/Header.php";
         $this->userFooterView = $_SERVER{'DOCUMENT_ROOT'} ."/app/views/Footer.php";
     }

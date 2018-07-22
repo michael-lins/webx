@@ -25,10 +25,20 @@ class App {
     
     private $errorMessage;
     
+    private $namespace;
+    
+    function setNamespace( $namespace ) {
+        $this->namespace = $namespace;
+    }
+    
+    function getNamespace() {
+        return $this->namespace;
+    }
+    
     public function __construct( $name ) {
         $this->name = $name;
-        $this->view = new View();
-        $this->router = new Router();
+        $this->view = new View( $this );
+        $this->router = new Router( $this );
     }
 
     public function getNameForAction() {
@@ -51,10 +61,7 @@ class App {
         // Creates the session
         Session::start();
         
-        $this->router->init( $this );
-        
-        // pass on the app to the view context
-        $this->view->app = $this;
+        $this->router->init();
         
         // Renders the view for the current action
         $this->view->renderView( $this->router->getCurrentAction() );

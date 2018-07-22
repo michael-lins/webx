@@ -19,8 +19,18 @@ class BasicAction implements IAction {
     
     private $redirectActionName;
     
+    private $namespace;
+    
     public function __construct( $name ) {
         $this->name = $name;
+    }
+    
+    function getNamespace() {
+        return $this->namespace;
+    }
+    
+    function setNamespace( $namespace ) {
+        $this->namespace;
     }
     
     function setRedirectActionName( $actionName ) {

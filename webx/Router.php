@@ -26,17 +26,23 @@ class Router {
 
     private $defaultActionName;
 
+    private $app;
+
     private function getAction( $actionName ) {
         return $this->actionsList[ $actionName ];
     }
 
-    public function init( $app ) {
+    public function __construct( $app ) {
+        $this->app = $app;
+    }
+
+    public function init() {
 
         // Get new action (sent by the form)
         if ( null == $currentAction )
             $postedAction = $_POST[ Router::ACTION_FORM_VAR_NAME ];
         else
-            $postedAction = $app->getCurrentAction()->getName();
+            $postedAction = $this->app->getCurrentAction()->getName();
         
         // Action Controller and Validation
         // Default page: List
@@ -49,7 +55,7 @@ class Router {
                 
             } else {
                 $this->addAction( "404" );
-                $app->setErrorMessage( $postedAction );
+                $this->app->setErrorMessage( $postedAction );
                 $this->currentAction = $this->getAction( "404" );
                 
             }
@@ -81,13 +87,27 @@ class Router {
         return $this->currentAction;
     }
 
+    function findNamespace( $actionFilePath ) {
+        
+        $fileContent = file_get_contents( $actionFilePath );
+        
+    	if (preg_match('#^namespace\s+(.+?);$#sm', $fileContent, $m)) {
+    		return $m[1];
+    	}
+    	return null;
+    }
+
     public function addAction( $actionName, $redirectName = null, $default = false ) {
         
         $classFile = $_SERVER{'DOCUMENT_ROOT'} . "/app/actions/{$actionName}.php";
+        
         // Creates especif action file
         if ( file_exists( $classFile ) ) {
-            require_once $classFile;
-            $action = new $actionName( $actionName );
+            if ( empty( $this->app->getNamespace() ) )
+                $this->app->setNamespace( $this->findNamespace( $classFile ) );
+
+            $clazz = $this->app->getNamespace() ."\\". $actionName;
+            $action = new $clazz( $actionName );
         } 
         // Or create default action file (only view mode)
         else {
