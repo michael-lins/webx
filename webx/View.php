@@ -22,6 +22,7 @@ class View {
     }
     
     function renderContent( $viewFile ) {
+        
         // Calls content view
         if ( file_exists( $viewFile ) )
             require_once $viewFile;

@@ -10,15 +10,15 @@
  * @author Michael Lins <michael at longanime.com.br>
  * @created 2018-07-19
  */
-require_once "webxample/BasicAction.class.php";
-require_once "webxample/Session.class.php";
+use Webx\BasicAction;
+use Webx\Session;
 
 class ListAction extends BasicAction {
     
-    private $list;
-    
     public function getList() {
-       return $this->list;
+        if ( empty($this->list) )
+            $this->list = Session::getValue( "list" );
+        return $this->list;
     }
     
     public function execute() {
@@ -29,5 +29,6 @@ class ListAction extends BasicAction {
             Session::setValue( "list", array( "Michael Lins", "Mike Leens" ) );
         
         $this->list = Session::getValue( "list" );
+        
     }
 }

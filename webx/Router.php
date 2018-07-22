@@ -12,7 +12,7 @@
  */
 namespace Webx;
 
-use BasicAction;
+use Webx\BasicAction;
  
 class Router {
     
@@ -83,7 +83,7 @@ class Router {
 
     public function addAction( $actionName, $redirectName = null, $default = false ) {
         
-        $classFile = $_SERVER{'DOCUMENT_ROOT'} . "/app/actions/{$actionName}.class.php";
+        $classFile = $_SERVER{'DOCUMENT_ROOT'} . "/app/actions/{$actionName}.php";
         // Creates especif action file
         if ( file_exists( $classFile ) ) {
             require_once $classFile;
@@ -95,7 +95,7 @@ class Router {
         }
 
         // creates the action object
-        $action->setClassFilePath( $_SERVER{'DOCUMENT_ROOT'} . "/app/actions/{$actionName}.class.php" );
+        $action->setClassFilePath( $_SERVER{'DOCUMENT_ROOT'} . "/app/actions/{$actionName}.php" );
         $action->setViewFilePath( $_SERVER{'DOCUMENT_ROOT'} . "/app/views/{$actionName}.php" );
         if ( $redirectName )
             $action->setRedirectActionName( $redirectName );

@@ -1,10 +1,10 @@
 <?php
-require_once 'vendor/autoload.php';
+require 'vendor/autoload.php';
 
 use Webx\App;
 
 // Create the new application
-$app = new App( "NameCrudApp" );
+$app = new \Webx\App( "NameCrudApp" );
 
 // Configure the actions for this app
 include_once "actions.php";

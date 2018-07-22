@@ -10,12 +10,11 @@
  * @author Michael Lins <michael at longanime.com.br>
  * @created 2018-07-19
  */
-require_once "webxample/BasicAction.class.php";
+use Webx\BasicAction;
 
 class Delete extends BasicAction {
 
     public function execute() {
-
         // Should call the repository!
         $array = $_SESSION[ "list" ];
         unset( $array[ $this->getPk() ] );

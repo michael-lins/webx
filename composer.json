@@ -1,5 +1,20 @@
 {
+    "name": "longanime/webx",
+    "description": "Light php framework to illustrate the implementation of a web framework with static routes from scratch",
+    "type": "library",
     "require": {
         "php": "^5.5"
+    },
+    "authors": [
+        {
+            "name": "Michael Lins",
+            "email": "michael@longanime.com.br"
+        }
+    ],
+    
+     "autoload": {
+        "psr-4": {
+            "Webx\\": "webx/"
+        }
     }
 }

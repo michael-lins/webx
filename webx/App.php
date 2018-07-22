@@ -1,9 +1,9 @@
 <?php
 namespace Webx;
 
-use Router;
-use View;
-use Session;
+use Webx\Router;
+use Webx\View;
+use Webx\Session;
 /**
  * webxample framework
  * 
@@ -31,6 +31,14 @@ class App {
         $this->router = new Router();
     }
 
+    public function getNameForAction() {
+        return Router::ACTION_FORM_VAR_NAME;
+    }
+
+    public function getNameForPk() {
+        return Router::PK_FORM_VAR_NAME;
+    }
+
     public function getName() {
         return $this->name;
     }
@@ -41,8 +49,7 @@ class App {
     
     public function start() {
         // Creates the session
-        if ( session_status() != PHP_SESSION_ACTIVE )
-            Session::start();
+        Session::start();
         
         $this->router->init( $this );
         

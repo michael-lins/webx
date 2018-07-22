@@ -7,13 +7,13 @@
                 <small id="namelHelp" class="form-text text-muted">Please, edit the name and save by pressing the button bellow.</small>
             </div>
             
-            <input type="hidden" name="<?= Router::PK_FORM_VAR_NAME ?>" value="<?= $this->app->getCurrentAction()->getPk() ?>"/>
-            <input type="hidden" name="<?= Router::ACTION_FORM_VAR_NAME ?>" value="Save"/>
+            <input type="hidden" name="<?= $this->app->getNameForPk() ?>" value="<?= $this->app->getCurrentAction()->getPk() ?>"/>
+            <input type="hidden" name="<?= $this->app->getNameForAction() ?>" value="Save"/>
             <button type="submit" class="btn btn-primary">Save</button>
             </fieldset>
         </form>
     
         <form action="/" method="post">
             <button type="submit" class="btn btn-secondary">Cancel</button>
-            <input type="hidden" name="<?= Router::ACTION_FORM_VAR_NAME ?>" value=""/>
+            <input type="hidden" name="<?= $this->app->getNameForAction() ?>" value=""/>
         </form>

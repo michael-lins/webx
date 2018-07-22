@@ -7,12 +7,12 @@
                 <small id="namelHelp" class="form-text text-muted">Please, enter the name to be inserted in the list.</small>
             </div>
             
-            <input type="hidden" name="<?= Router::ACTION_FORM_VAR_NAME ?>" value="Insert"/>
+            <input type="hidden" name="<?= $this->app->getNameForAction() ?>" value="Insert"/>
             <button type="submit" class="btn btn-primary">Insert</button>
             </fieldset>
         </form>
     
         <form action="/" method="post">
             <button type="submit" class="btn btn-secondary">Cancel</button>
-            <input type="hidden" name="<?= Router::ACTION_FORM_VAR_NAME ?>" value=""/>
+            <input type="hidden" name="<?= $this->app->getNameForAction() ?>" value=""/>
         </form>

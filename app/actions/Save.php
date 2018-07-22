@@ -10,7 +10,7 @@
  * @author Michael Lins <michael at longanime.com.br>
  * @created 2018-07-19
  */
-require_once "webxample/BasicAction.class.php";
+use Webx\BasicAction;
 
 class Save extends BasicAction {
 

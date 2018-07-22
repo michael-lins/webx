@@ -1,7 +1,7 @@
             <div>
                 <form action="/" method="post">
                     <button type="submit" class="btn btn-success btn-lg float-right">Create new name</button>
-                    <input type="hidden" name="<?= Router::ACTION_FORM_VAR_NAME ?>" value="New"/>
+                    <input type="hidden" name="<?= $this->app->getNameForAction() ?>" value="New"/>
                 </form>
             </div>
 
@@ -20,13 +20,13 @@
                             <td>
                                 <form action="/" method="post">
                                     <button type="submit" class="btn btn-link btn-sm float-left">Edit</button>
-                                    <input type="hidden" name="<?= Router::ACTION_FORM_VAR_NAME ?>" value="Edit"/>
-                                    <input type="hidden" name="<?= Router::PK_FORM_VAR_NAME ?>" value="<?= $id ?>"/>
+                                    <input type="hidden" name="<?= $this->app->getNameForAction() ?>" value="Edit"/>
+                                    <input type="hidden" name="<?= $this->app->getNameForPk() ?>" value="<?= $id ?>"/>
                                 </form>
                                 <form action="/" method="post">
                                     <button type="submit" class="btn btn-link btn-sm" style="color: red;">Delete</button>
-                                    <input type="hidden" name="<?= Router::ACTION_FORM_VAR_NAME ?>" value="Delete"/>
-                                    <input type="hidden" name="<?= Router::PK_FORM_VAR_NAME ?>" value="<?= $id ?>"/>
+                                    <input type="hidden" name="<?= $this->app->getNameForAction() ?>" value="Delete"/>
+                                    <input type="hidden" name="<?= $this->app->getNameForPk() ?>" value="<?= $id ?>"/>
                                 </form>
                             </td>
                         </tr>

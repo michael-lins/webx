@@ -1,10 +1,14 @@
 <?php
 namespace Webx;
 
+/**
+ * Session handler
+ */
 class Session {
     
     public static function start() {
-        session_start();
+        if ( session_status() != PHP_SESSION_ACTIVE )
+            session_start();
     }
     
     public static function setValue( $name, $value ) {
