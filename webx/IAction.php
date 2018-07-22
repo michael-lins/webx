@@ -10,7 +10,7 @@
  * @author Michael Lins <michael at longanime.com.br>
  * @created 2018-07-19
  */
-namespace Webx;
+namespace Longanime\Webx;
  
 interface IAction {
 

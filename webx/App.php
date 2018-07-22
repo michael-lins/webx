@@ -1,9 +1,9 @@
 <?php
-namespace Webx;
+namespace Longanime\Webx;
 
-use Webx\Router;
-use Webx\View;
-use Webx\Session;
+use Longanime\Webx\Router;
+use Longanime\Webx\View;
+use Longanime\Webx\Session;
 /**
  * webxample framework
  * 

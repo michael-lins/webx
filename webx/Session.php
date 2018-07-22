@@ -1,5 +1,5 @@
 <?php
-namespace Webx;
+namespace Longanime\Webx;
 
 /**
  * Session handler

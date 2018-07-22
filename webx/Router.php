@@ -10,9 +10,9 @@
  * @author Michael Lins <michael at longanime.com.br>
  * @created 2018-07-19
  */
-namespace Webx;
+namespace Longanime\Webx;
 
-use Webx\BasicAction;
+use Longanime\Webx\BasicAction;
  
 class Router {
     

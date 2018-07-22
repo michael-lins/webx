@@ -1,7 +1,7 @@
 <?php
-namespace Webx;
+namespace Longanime\Webx;
 
-use Webx\IAction;
+use Longanime\Webx\IAction;
 
 class BasicAction implements IAction {
 
