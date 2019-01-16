@@ -28,6 +28,10 @@ class Router {
 
     private $app;
 
+    private function getProjectPath() {
+        $project_path =  explode( "/vendor", getcwd() )[0];
+    }
+
     private function getAction( $actionName ) {
         return $this->actionsList[ $actionName ];
     }
@@ -99,7 +103,7 @@ class Router {
 
     public function addAction( $actionName, $redirectName = null, $default = false ) {
         
-        $classFile = $_SERVER{'DOCUMENT_ROOT'} . "/app/actions/{$actionName}.php";
+        $classFile = $this->getProjectPath() . "/app/actions/{$actionName}.php";
         
         // Creates especif action file
         if ( file_exists( $classFile ) ) {
@@ -115,8 +119,8 @@ class Router {
         }
 
         // creates the action object
-        $action->setClassFilePath( $_SERVER{'DOCUMENT_ROOT'} . "/app/actions/{$actionName}.php" );
-        $action->setViewFilePath( $_SERVER{'DOCUMENT_ROOT'} . "/app/views/{$actionName}.php" );
+        $action->setClassFilePath( $this->getProjectPath() . "/app/actions/{$actionName}.php" );
+        $action->setViewFilePath( $this->getProjectPath() . "/app/views/{$actionName}.php" );
         if ( $redirectName )
             $action->setRedirectActionName( $redirectName );
         

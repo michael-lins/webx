@@ -11,9 +11,11 @@ class View {
     public function __construct( $app ) {
         
         $this->app = $app;
-        
-        $this->userHeaderView = $_SERVER{'DOCUMENT_ROOT'} ."/app/views/Header.php";
-        $this->userFooterView = $_SERVER{'DOCUMENT_ROOT'} ."/app/views/Footer.php";
+   
+        $project_path = explode( "/vendor", getcwd() )[0];
+    
+        $this->userHeaderView = $project_path ."/app/views/Header.php";
+        $this->userFooterView = $project_path ."/app/views/Footer.php";
     }
     
     function renderHeader() {
@@ -48,7 +50,7 @@ class View {
         if ( $currentAction->getName() != "404" )
             $this->renderContent( $currentAction->getViewFilePath() );
         else
-            $this->renderContent( $_SERVER{'DOCUMENT_ROOT'} ."/webxample/views/404.php" );
+            $this->renderContent( getcwd() ."/views/404.php" );
         
         $this->renderFooter();
     }
