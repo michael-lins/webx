@@ -1,3 +1,5 @@
+![](https://api.travis-ci.org/michael-lins/webx.svg?branch=master)
+
 ## Welcome to Webx (tiny) php framework
 
 Tiny and simple framework to illustrate an implementation of a web framework with static routes using Php | Study purposes for programming classes.
