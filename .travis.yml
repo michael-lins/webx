@@ -1,13 +1,10 @@
-# see http://about.travis-ci.org/docs/user/languages/php/ for more hints
-#
 language: php
 php:
   - '7.2'
 
-  # configure notifications (email, IRC, campfire etc)
-  notifications:
-    email:
-        recipients:
-              - michael@longanime.com.br
-                  on_success: never # default: change
-                      on_failure: always # default: always
+notifications:
+  email:
+    recipients:
+      - michael@longanime.com.br
+    on_success: never # default: change
+    on_failure: always # default: always
