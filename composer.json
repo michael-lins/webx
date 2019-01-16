@@ -9,7 +9,7 @@
     "description": "Light php framework to illustrate the implementation of a web framework with static routes for study purposes",
     "type": "library",
     "require": {
-        "php": "^5.5"
+        "php": "^7.2"
     },
     "license": "MIT",
     "authors": [

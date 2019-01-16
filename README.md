@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+## Welcome to Webx (tiny) php framework
 
-You can use the [editor on GitHub](https://github.com/michael-lins/webxample-php/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Tiny and simple framework to illustrate an implementation of a web framework with static routes using Php | Study purposes for programming classes.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This was a design POC architecture for academic use forged as a gift for a friend teaching classes in web programming.
 
-### Markdown
+You may use it as it is. There is no plan on continuing this project (well...who knows in the future!)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Feel free to send comments.
+
+### Installation
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+composer require longanime/webx
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Architectre
 
-### Jekyll Themes
+Simple View-Controller (no model) with static route approach.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/michael-lins/webxample-php/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Folder structure:
+
+|-app/ _root folder of your application_
+|--actions/ _your actions classes_
+|--view/ _your view classes (matching actions' names)_
+|-actions.php _Build your actions and rounting_
+|-app.php _Your application configuration_
+|-index.php _App caller_
+
+### Usage
+
+Create an `app.php` file in your root folder and inialize a new App.
+
+```markdown
+$app = new App( "app-name" );
+```
+
+You can create your actions/rountings direct inside the `app.php` file or you could create an `actions.php` file and inside of it require individual controllers (no enforced, for now).
+
+When creating, for each action it will seek for
+1. an action class: a file under /app/actions/[ActionName].class.php
+2. a view: a file under /app/views/[ActionName].php
+ 
+*If the action does not needs a view, just create the class file under (1)*
+
+There is an example app called [webx-app](https://github.com/michael-lins/webx-app/) available on github.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+You can reach me at michael@longanime.com.br
+
+Good Coding!
