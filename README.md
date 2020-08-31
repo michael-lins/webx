@@ -49,6 +49,6 @@ There is an example app called [webx-app](https://github.com/michael-lins/webx-a
 
 ### Support or Contact
 
-You can reach me at michael@longanime.com.br
+You can reach me at michael at malvins dot studio
 
 Good Coding!
